@@ -13,23 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod array_2d;
 pub mod atomics;
-pub mod blockuntilzero;
-pub mod bloom_filters;
-pub mod config_setting;
 pub mod const_value;
-pub mod counttracker;
-pub mod default_data_dir;
 pub mod ensure;
-pub mod exp_rand;
-pub mod newtype;
-pub mod once_destructor;
-pub mod qrcode;
-pub mod rust_backtrace;
-pub mod set_flag;
 pub mod shallow_clone;
-pub mod tap_error_log;
 
 mod concurrency_impl;
 pub use concurrency_impl::*;
