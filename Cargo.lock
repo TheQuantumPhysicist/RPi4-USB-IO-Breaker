@@ -1119,10 +1119,7 @@ name = "serialization"
 version = "0.2.0"
 dependencies = [
  "hex",
- "serde",
- "serde_json",
  "serialization-core",
- "thiserror",
 ]
 
 [[package]]
@@ -1294,11 +1291,9 @@ dependencies = [
  "crypto",
  "hex",
  "itertools",
- "logging",
  "rand_chacha",
  "rstest",
  "serialization",
- "utils",
 ]
 
 [[package]]
