@@ -6,7 +6,6 @@ edition.workspace = true
 rust-version.workspace = true
 
 [dependencies]
-logging = { path = '../../logging' }
 utils = { path = '../../utils' }
 
 itertools.workspace = true

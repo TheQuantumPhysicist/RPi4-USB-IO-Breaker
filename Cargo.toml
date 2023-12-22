@@ -25,7 +25,6 @@ default-members = [
 
 [dependencies]
 crypto = { path = "crypto"}
-logging = { path = "logging"}
 serialization = { path = "serialization"}
 storage = { path = "storage"}
 
@@ -54,7 +53,6 @@ tempfile = "3.3"
 thiserror = "1.0"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["registry", "env-filter", "json"] }
-tokio = { version = "1.27", default-features = false }
 
 
 [profile.dev]

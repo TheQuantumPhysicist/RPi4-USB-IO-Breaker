@@ -6,7 +6,6 @@ edition.workspace = true
 rust-version.workspace = true
 
 [dependencies]
-logging = { path = "../../logging" }
 storage-core = { path = "../core" }
 utils = { path = "../../utils" }
 

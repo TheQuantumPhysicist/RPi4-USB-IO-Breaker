@@ -67,7 +67,6 @@ impl Error {
         match self {
             Self::Recoverable(e) => e,
             Self::Fatal(e) => {
-                logging::log::error!("Fatal database error: {e}");
                 panic!("Fatal database error: {e}")
             }
         }

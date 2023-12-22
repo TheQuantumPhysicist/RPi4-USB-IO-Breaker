@@ -91,8 +91,7 @@ impl Drop for DbTx<'_> {
         }
 
         let res = self.connection.execute("ROLLBACK TRANSACTION", ());
-        if let Err(err) = res {
-            logging::log::error!("Error: transaction rollback failed: {}", err);
+        if let Err(_err) = res {
         }
     }
 }
