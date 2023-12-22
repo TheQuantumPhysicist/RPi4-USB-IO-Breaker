@@ -23,5 +23,3 @@ pub mod json_encoded;
 
 // Re-export all the constituent parts
 pub use serialization_core::*;
-pub use serialization_tagged as tagged;
-pub use tagged::{DirectDecode, DirectEncode, Tag, Tagged};

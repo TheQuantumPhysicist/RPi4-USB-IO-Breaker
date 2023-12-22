@@ -1844,7 +1844,6 @@ dependencies = [
  "serde",
  "serde_json",
  "serialization-core",
- "serialization-tagged",
  "thiserror",
 ]
 
@@ -1856,28 +1855,6 @@ dependencies = [
  "hex-literal",
  "parity-scale-codec",
  "rand 0.8.5",
-]
-
-[[package]]
-name = "serialization-tagged"
-version = "0.2.0"
-dependencies = [
- "parity-scale-codec",
- "proptest",
- "serialization",
- "serialization-core",
- "serialization-tagged-derive",
- "static_assertions",
-]
-
-[[package]]
-name = "serialization-tagged-derive"
-version = "0.2.0"
-dependencies = [
- "itertools 0.12.0",
- "proc-macro2",
- "quote",
- "syn 2.0.41",
 ]
 
 [[package]]
