@@ -143,10 +143,7 @@ pub fn dump_storage<B: Backend, Sch: Schema>(
 
 #[cfg(test)]
 mod test {
-    use crate::Storage;
-
     use super::*;
-    use storage_inmemory::InMemory;
 
     crate::decl_schema! {
         TestSchema {
@@ -171,49 +168,5 @@ mod test {
         assert_eq!(TestDbMapId::from_name("Db0"), Some(idx0));
         assert_eq!(TestDbMapId::from_name("Db1"), Some(idx1));
         assert_eq!(TestDbMapId::from_name("DbX"), None);
-    }
-
-    #[test]
-    fn basic_dump() {
-        utils::concurrency::model(|| {
-            let storage = Storage::<_, TestSchema>::new(InMemory::new()).unwrap();
-            let db1 = DbMapId::new::<Db0, _>();
-            let db2 = DbMapId::new::<Db1, _>();
-
-            {
-                // Check the DB dump is empty initially
-                let raw_db = storage.transaction_ro().unwrap().dump_raw().unwrap();
-                assert_eq!(raw_db.len(), 2);
-                assert!(raw_db.iter().all(|x| x.1.is_empty()));
-            }
-
-            // Add some values, check the dump contents
-            let mut dbtx = storage.transaction_rw(None).unwrap();
-            dbtx.get_mut::<Db0, _>().put(42, 1337).unwrap();
-            dbtx.get_mut::<Db1, _>().put(21, vec![1, 2, 3, 4]).unwrap();
-            dbtx.commit().unwrap();
-
-            {
-                let raw_db = storage.transaction_ro().unwrap().dump_raw().unwrap();
-                assert_eq!(raw_db[&db1].len(), 1);
-                assert_eq!(raw_db[&db1][[42, 0, 0, 0].as_ref()], vec![57, 5, 0, 0]);
-                assert_eq!(raw_db[&db2].len(), 1);
-                assert_eq!(raw_db[&db2][[21, 0].as_ref()], vec![4 << 2, 1, 2, 3, 4]);
-            }
-
-            // More modifications, check contents
-            let mut dbtx = storage.transaction_rw(None).unwrap();
-            dbtx.get_mut::<Db0, _>().del(42).unwrap();
-            dbtx.get_mut::<Db1, _>().put(22, vec![1, 2]).unwrap();
-            dbtx.commit().unwrap();
-
-            {
-                let raw_db = storage.transaction_ro().unwrap().dump_raw().unwrap();
-                assert_eq!(raw_db[&db1].len(), 0);
-                assert_eq!(raw_db[&db2].len(), 2);
-                assert_eq!(raw_db[&db2][[21, 0].as_ref()], vec![4 << 2, 1, 2, 3, 4]);
-                assert_eq!(raw_db[&db2][[22, 0].as_ref()], vec![2 << 2, 1, 2]);
-            }
-        })
     }
 }

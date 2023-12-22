@@ -101,11 +101,3 @@ pub use storage_core::{error, Backend, Error, Result};
 
 // Re-export the interface types
 pub use database::*;
-
-// Re-export the in-memory storage
-// TODO: Remove this to further decouple the general storage interface from individual backends
-#[cfg(feature = "inmemory")]
-pub use storage_inmemory as inmemory;
-
-#[cfg(test)]
-mod test;
