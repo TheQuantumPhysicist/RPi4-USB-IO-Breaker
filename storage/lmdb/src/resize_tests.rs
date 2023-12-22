@@ -51,6 +51,18 @@ fn create_random_data_map_with_target_byte_size(
 #[rstest]
 #[trace]
 #[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
 fn auto_map_resize_between_txs(#[case] seed: Seed) {
     utils::concurrency::model(move || {
         let mut rng = make_seedable_rng(seed);
@@ -121,6 +133,23 @@ fn auto_map_resize_between_txs(#[case] seed: Seed) {
 
 #[rstest]
 #[trace]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
+#[case(test_utils::random::Seed::from_entropy())]
 #[case(test_utils::random::Seed::from_entropy())]
 fn auto_map_resize_between_puts(#[case] seed: Seed) {
     utils::concurrency::model(move || {
