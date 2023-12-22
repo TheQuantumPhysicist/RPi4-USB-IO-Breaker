@@ -28,7 +28,3 @@ static_assertions.workspace = true
 
 [target.'cfg(loom)'.dependencies]
 loom.workspace = true
-
-[[bench]]
-name = "benches"
-harness = false
