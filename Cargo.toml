@@ -24,7 +24,6 @@ default-members = [
 ]
 
 [dependencies]
-# common = { path = "common"}
 crypto = { path = "crypto"}
 logging = { path = "logging"}
 serialization = { path = "serialization"}
@@ -37,13 +36,13 @@ version = "0.2.0"
 license = "MIT"
 
 [workspace.dependencies]
-anyhow = "1.0"
+# anyhow = "1.0"
 arraytools = "0.1"
-bip39 = { version = "2.0", default-features = false }
-bitcoin-bech32 = "0.13"
-blake2 = "0.10"
-chacha20poly1305 = "0.10"
-criterion = "0.5"
+# bip39 = { version = "2.0", default-features = false }
+# bitcoin-bech32 = "0.13"
+# blake2 = "0.10"
+# chacha20poly1305 = "0.10"
+# criterion = "0.5"
 directories = "5.0"
 generic-array = "0.14"
 hex = "0.4"
